@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 824 824">
+  <!-- 파비콘. docs/public/logo.svg 와 같은 그림 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3a3c" />
+      <stop offset="1" stop-color="#1c1c1e" />
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)" />
+  <path d="M232 660 392 532 512 596 672 420 792 356V792H232Z" fill="url(#area)" />
+  <polyline points="232,660 392,532 512,596 672,420 792,356" fill="none" stroke="#ffffff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="792" cy="356" r="50" fill="#ff3b30" stroke="#2f2f31" stroke-width="20" />
+</svg>

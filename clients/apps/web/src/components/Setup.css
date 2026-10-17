@@ -1,0 +1,52 @@
+/* 연결 화면 (대시보드 대신 단독으로 뜬다) */
+.setup {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 12vh 24px 48px;
+}
+.setup form {
+  display: grid;
+  gap: 16px;
+  padding: 28px;
+}
+.setup h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.setup .sub,
+.setup .err {
+  margin: 0;
+}
+.setup label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.setup input.text {
+  width: 100%;
+  padding: 9px 10px;
+}
+.setup small {
+  font-size: 12px;
+  font-weight: 400;
+}
+.setup button {
+  font: inherit;
+  font-weight: 600;
+  color: var(--surface);
+  background: var(--ink);
+  border: 0;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+.setup button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.setup a {
+  color: var(--ink);
+}

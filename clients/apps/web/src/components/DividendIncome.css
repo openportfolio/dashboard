@@ -1,0 +1,54 @@
+/* 배당: 요약 숫자 · 달별 막대 */
+.div-sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  margin-bottom: 18px;
+}
+.div-sum .label {
+  color: var(--ink2);
+  font-size: 13px;
+  font-weight: 500;
+}
+.div-sum b {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.div-months {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.div-month {
+  display: grid;
+  gap: 4px;
+  text-align: center;
+}
+.div-month:focus {
+  outline: none;
+}
+.div-month span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.div-bar {
+  display: flex;
+  align-items: flex-end;
+  height: 72px;
+  border-radius: 6px;
+  background: var(--fill);
+  overflow: hidden;
+}
+.div-bar > div {
+  width: 100%;
+  background: var(--s3); /* 빨강·파랑은 등락 색 */
+  transition: filter 0.15s;
+}
+.div-month:hover .div-bar > div,
+.div-month:focus .div-bar > div {
+  filter: brightness(1.12);
+}

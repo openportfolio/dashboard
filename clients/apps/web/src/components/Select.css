@@ -1,0 +1,91 @@
+/* 꾸민 select: 브라우저가 지원할 때만 (아니면 style.css 의 기본 select) */
+@supports (appearance: base-select) {
+  .select,
+  .select::picker(select) {
+    appearance: base-select;
+  }
+  .select {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px 5px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--fill);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .select:hover {
+    background: var(--fill-strong);
+  }
+  .select > button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+  }
+  .select::picker-icon {
+    margin-left: auto;
+    color: var(--muted);
+    transition: rotate 0.15s;
+  }
+  .select:open::picker-icon {
+    rotate: 180deg;
+  }
+  /* 메뉴: 반투명 재질 */
+  .select::picker(select) {
+    min-width: anchor-size(width);
+    margin-top: 6px;
+    padding: 5px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--material);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    color: var(--ink);
+    box-shadow: var(--shadow-pop);
+  }
+  .select option {
+    display: grid;
+    grid-template-columns: 8px 1fr auto;
+    align-items: center;
+    gap: 2px 8px;
+    padding: 6px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  .select option:hover,
+  .select option:focus-visible {
+    background: var(--fill);
+    outline: none;
+  }
+  .select option:checked {
+    font-weight: 600;
+  }
+  .select option::checkmark {
+    grid-area: 1 / 3;
+    color: var(--ink2);
+  }
+  .select .label {
+    grid-column: 2;
+  }
+  .select .detail {
+    grid-column: 2;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .select .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+}

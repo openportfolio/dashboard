@@ -1,0 +1,32 @@
+/* 자산 구성 스택 바 · 통화 미터 (저장 공간 막대처럼 양 끝만 둥글게) */
+.stack {
+  display: flex;
+  gap: 2px;
+  height: 22px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 4px 0 16px;
+}
+.stack > div {
+  min-width: 2px;
+}
+.stack > div:hover,
+.stack > div:focus {
+  filter: brightness(1.12);
+  outline: none;
+}
+/* 미터: 채움과 같은 색 계열의 옅은 트랙 */
+.meter {
+  height: 22px;
+  margin: 4px 0 16px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--s1) 22%, var(--surface));
+}
+.meter > div {
+  height: 100%;
+  background: var(--s1);
+}
+.meter-track {
+  background: color-mix(in oklab, var(--s1) 22%, var(--surface));
+}

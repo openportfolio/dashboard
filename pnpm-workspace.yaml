@@ -1,0 +1,8 @@
+packages:
+  - server
+  - clients/apps/*
+  - clients/packages/*
+  - docs
+allowBuilds:
+  electron-winstaller: false
+  esbuild: false

@@ -1,0 +1,110 @@
+/* 전략 편집 시트: 화면 가운데 큰 모달 (<dialog> showModal) */
+.sheet {
+  width: min(1040px, calc(100vw - 48px));
+  max-height: calc(100dvh - 48px);
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-pop);
+  overflow: hidden;
+}
+.sheet[open] {
+  display: flex;
+  flex-direction: column;
+  animation: sheet-in 0.32s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.sheet::backdrop {
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: sheet-fade 0.2s ease-out;
+}
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+}
+@keyframes sheet-fade {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sheet[open],
+  .sheet::backdrop {
+    animation: none;
+  }
+}
+/* 시트가 열려 있는 동안 뒤 화면은 스크롤하지 않는다 */
+html:has(.sheet[open]) {
+  overflow: hidden;
+}
+.sheet-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px 14px;
+  border-bottom: 1px solid var(--grid);
+}
+.sheet-head h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.sheet-head .done {
+  font: inherit;
+  font-weight: 600;
+  color: var(--surface);
+  background: var(--ink);
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 18px;
+  cursor: pointer;
+}
+.sheet-body {
+  overflow-y: auto;
+  padding: 18px 24px 24px;
+}
+
+/* 전략 편집기 */
+.editor {
+  display: grid;
+  gap: 14px;
+}
+.editor td {
+  vertical-align: middle;
+}
+.editor fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--grid);
+  border-radius: 12px;
+}
+.editor legend {
+  padding: 0 4px;
+  color: var(--ink2);
+  font-size: 12px;
+}
+.editor label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.editor .icon-btn {
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+}
+/* 역할 칸: 이름 길이와 상관없이 같은 폭 */
+.editor .select {
+  min-width: 96px;
+}

@@ -1,0 +1,304 @@
+/*
+ * 전역: 색 토큰 · 기본 글꼴 · 여러 컴포넌트가 함께 쓰는 카드 · 표 · 버튼 · 입력칸.
+ * 한 컴포넌트만 쓰는 스타일은 그 컴포넌트 옆 .css 에 둔다 (예: KpiRow.css).
+ * 색은 Apple 시스템 색 · 그룹 배경. 강조색은 Graphite(회색): 빨강·파랑은 등락 전용
+ */
+:root {
+  color-scheme: light;
+  --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --page: #f2f2f7;
+  --surface: #ffffff;
+  /* 세그먼트 선택 · 떠 있는 면 */
+  --raised: #ffffff;
+  --ink: #1d1d1f;
+  --ink2: #6e6e73;
+  --muted: #86868b;
+  /* 버튼 · 입력칸 · 막대 트랙 */
+  --fill: rgba(118, 118, 128, 0.12);
+  --fill-strong: rgba(118, 118, 128, 0.2);
+  --grid: #e5e5ea;
+  --axis: #d1d1d6;
+  --ring: rgba(0, 0, 0, 0.06);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-pop: 0 10px 32px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.08);
+  /* 반투명 재질 (헤더 · 툴팁 · 메뉴) */
+  --material: rgba(255, 255, 255, 0.72);
+  --blur: saturate(180%) blur(20px);
+  --s1: #007aff;
+  --s2: #ff9500;
+  --s3: #34c759;
+  --s4: #ffcc00;
+  --s5: #af52de;
+  --s6: #30b0c7;
+  --s7: #5856d6;
+  --other: #8e8e93;
+  /* 국내 관례: 상승 빨강 / 하락 파랑, 중립 회색. -text 는 바탕 대비를 높인 글자색 */
+  --up: #ff3b30;
+  --down: #007aff;
+  --mid: #f2f2f7;
+  --up-text: #d70015;
+  --down-text: #0040dd;
+}
+/* 다크: lib/theme.ts 가 <html data-theme> 를 정한다 (기본은 OS 설정) */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --page: #000000;
+  --surface: #1c1c1e;
+  --raised: #636366;
+  --ink: #f5f5f7;
+  --ink2: #aeaeb2;
+  --muted: #8e8e93;
+  --fill: rgba(118, 118, 128, 0.24);
+  --fill-strong: rgba(118, 118, 128, 0.36);
+  --grid: #2c2c2e;
+  --axis: #3a3a3c;
+  --ring: rgba(255, 255, 255, 0.08);
+  --shadow: none;
+  --shadow-pop: 0 10px 32px rgba(0, 0, 0, 0.5);
+  --material: rgba(30, 30, 32, 0.72);
+  --s1: #0a84ff;
+  --s2: #ff9f0a;
+  --s3: #30d158;
+  --s4: #ffd60a;
+  --s5: #bf5af2;
+  --s6: #40c8e0;
+  --s7: #5e5ce6;
+  --up: #ff453a;
+  --down: #0a84ff;
+  --mid: #2c2c2e;
+  --up-text: #ff6961;
+  --down-text: #409cff;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font:
+    14px/1.45 -apple-system,
+    BlinkMacSystemFont,
+    'SF Pro Text',
+    'Apple SD Gothic Neo',
+    system-ui,
+    sans-serif;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  outline-offset: 2px;
+}
+h2 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.sub {
+  color: var(--ink2);
+  font-size: 13px;
+  margin: 0 0 14px;
+}
+.muted {
+  color: var(--muted);
+}
+.names {
+  color: var(--muted);
+  font-size: 12px;
+}
+.up {
+  color: var(--up-text);
+}
+.down {
+  color: var(--down-text);
+}
+.err {
+  background: color-mix(in srgb, var(--s2) 14%, var(--surface));
+  border-radius: 12px;
+  padding: 12px 16px;
+  white-space: pre-wrap;
+}
+/* 카드: 테두리 없이 그룹 배경 위에 떠 있는 면 */
+.card {
+  background: var(--surface);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  min-width: 0;
+}
+/* 넓은 화면 2단 레이아웃 */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+.layout > .col {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-width: 0;
+}
+@media (min-width: 1100px) {
+  .layout {
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+  }
+}
+/* 색 견본 (범례 · 표) */
+.sw {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+
+/* 표: 가는 구분선만 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--grid);
+}
+td {
+  padding: 9px 8px;
+  border-bottom: 1px solid var(--grid);
+  vertical-align: top;
+}
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+th.n,
+td.n {
+  text-align: right;
+  white-space: nowrap;
+}
+/* 숫자는 모노: 자릿수 폭이 같아 1초 갱신에도 안 흔들린다. 한글(원)은 시스템 글꼴로 대체 */
+td.n {
+  font-family: var(--mono);
+}
+.table-scroll {
+  overflow-x: auto;
+}
+.th-sort {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.th-sort:hover {
+  color: var(--ink);
+}
+
+/* 버튼 · 조작 줄 */
+.filters {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.filters > button,
+.icon-btn {
+  font: inherit;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--fill);
+  border: 0;
+  border-radius: 8px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.filters > button:hover,
+.icon-btn:hover {
+  background: var(--fill-strong);
+}
+.filters > button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  font-size: 14px;
+  line-height: 1;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+}
+/* 세그먼트 컨트롤: 탭 · 기간 고르기 */
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 9px;
+  background: var(--fill);
+}
+.segmented > button {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  border-radius: 7px;
+  padding: 4px 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.segmented > button[aria-selected='true'],
+.segmented > button[aria-pressed='true'] {
+  background: var(--raised);
+  font-weight: 600;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.04);
+}
+/* 체크박스 + 이름 */
+.filters label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 10px;
+}
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  /* 색 있는 체크박스는 차트 범례 (백테스트 전략) 만 */
+  accent-color: var(--ink2);
+}
+/* 입력칸 (꾸민 select 는 Select.css) */
+input.num,
+input.text,
+select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--fill);
+  border: 0;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+input.num {
+  width: 64px;
+  font-family: var(--mono);
+  text-align: right;
+}
+input.text {
+  width: 200px;
+}
+input.text.short {
+  width: 84px;
+}

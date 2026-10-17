@@ -1,0 +1,14 @@
+{
+  "name": "@portfolio/server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env src/main.ts",
+    "start": "node --env-file-if-exists=.env src/main.ts",
+    "test": "node --test 'tests/**/*.test.ts'"
+  },
+  "devDependencies": {
+    "@portfolio/client": "workspace:*",
+    "@portfolio/typescript-config": "workspace:*"
+  }
+}

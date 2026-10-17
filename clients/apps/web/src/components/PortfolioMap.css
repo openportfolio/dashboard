@@ -1,0 +1,61 @@
+/* 포트폴리오 맵 (treemap) */
+.treemap {
+  position: relative;
+}
+.tm-head,
+.tm-tile {
+  position: absolute;
+  overflow: hidden;
+}
+.tm-head {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink2);
+  padding: 2px 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tm-tile {
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.15;
+  color: var(--ink);
+  transition: filter 0.15s;
+}
+.tm-tile b {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.tm-tile span {
+  font-family: var(--mono);
+  font-size: max(11px, 0.55em);
+}
+.tm-tile:hover,
+.tm-tile:focus {
+  filter: brightness(1.12);
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+  z-index: 1;
+}
+.tm-scale {
+  display: flex;
+  gap: 2px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.tm-scale span {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 2px 8px;
+  color: var(--ink);
+}
+.tm-scale span:first-child {
+  border-radius: 6px 0 0 6px;
+}
+.tm-scale span:last-child {
+  border-radius: 0 6px 6px 0;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@portfolio/client",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts"
+}

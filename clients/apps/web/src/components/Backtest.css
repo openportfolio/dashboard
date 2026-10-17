@@ -1,0 +1,15 @@
+/* 백테스트: 조작 줄 · 차트 · 비교표 */
+.bt-card {
+  display: grid;
+  /* minmax(0, …): 비교표가 넓어도 카드가 같이 넓어지지 않고 표만 가로 스크롤 (모바일) */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+/* 비교표: 전략 이름은 한 줄로 */
+.bt td:first-child {
+  white-space: nowrap;
+}
+/* 각주 문단 여백이 밖으로 겹쳐 나가지 않게 (기억한 높이 = 실제 차지하는 높이) */
+.bt-body {
+  display: flow-root;
+}

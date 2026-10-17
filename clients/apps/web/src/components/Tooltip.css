@@ -1,0 +1,24 @@
+/* data-tip 툴팁: 반투명 재질 */
+#tip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  background: var(--material);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  color: var(--ink);
+  box-shadow: var(--shadow-pop);
+  border-radius: 10px;
+  padding: 7px 11px;
+  font-size: 12px;
+  max-width: 280px;
+}
+#tip b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+#tip div {
+  color: var(--ink2);
+  white-space: pre-line;
+}

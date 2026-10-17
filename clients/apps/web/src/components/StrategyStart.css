@@ -1,0 +1,30 @@
+/* 새 전략 출발점: 누르는 타일 */
+.start {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.choice {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  text-align: left;
+  font: inherit;
+  color: var(--ink);
+  background: var(--fill);
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.choice:hover {
+  background: var(--fill-strong);
+}
+.choice b {
+  font-weight: 600;
+}
+.choice span {
+  color: var(--ink2);
+  font-size: 13px;
+}

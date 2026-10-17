@@ -1,0 +1,30 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "demo": "DEMO=1 pnpm -r --parallel dev",
+    "app": "pnpm -C clients/apps/web build && pnpm -C clients/apps/desktop start",
+    "app:dist": "pnpm -C clients/apps/web build && pnpm -C clients/apps/desktop dist",
+    "docs": "pnpm -C docs docs:dev",
+    "docs:build": "pnpm -C docs docs:build",
+    "test": "pnpm -r test",
+    "typecheck": "tsc -p server && tsc -p clients/apps/web && tsc -p clients/apps/desktop",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "typescript": "^7.0.2"
+  }
+}

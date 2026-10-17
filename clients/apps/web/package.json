@@ -1,0 +1,20 @@
+{
+  "name": "@portfolio/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test 'src/**/*.test.ts'"
+  },
+  "dependencies": {
+    "@portfolio/client": "workspace:*",
+    "solid-js": "^1.9.17",
+    "uplot": "^1.6.32"
+  },
+  "devDependencies": {
+    "@portfolio/typescript-config": "workspace:*",
+    "vite": "^8.3.4",
+    "vite-plugin-solid": "^2.11.14"
+  }
+}

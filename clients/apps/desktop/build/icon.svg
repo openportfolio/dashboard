@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- 앱 아이콘 원본. icon.png(1024)는 이걸 그린 것 (electron-builder 가 icns · ico 로 바꾼다) -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3a3c" />
+      <stop offset="1" stop-color="#1c1c1e" />
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dy="12" stdDeviation="14" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <!-- macOS 아이콘 격자: 1024 안에 824 둥근 사각형 -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)" filter="url(#shadow)" />
+  <path d="M232 660 392 532 512 596 672 420 792 356V792H232Z" fill="url(#area)" />
+  <polyline points="232,660 392,532 512,596 672,420 792,356" fill="none" stroke="#ffffff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- 국내 관례: 상승 빨강 -->
+  <circle cx="792" cy="356" r="50" fill="#ff3b30" stroke="#2f2f31" stroke-width="20" />
+</svg>

@@ -1,0 +1,41 @@
+/* 거래 탭: 세금 요약 숫자 · 체결 표 */
+.tax-sum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  margin-bottom: 18px;
+}
+.tax-sum .label {
+  color: var(--ink2);
+  font-size: 13px;
+  font-weight: 500;
+}
+.tax-sum b {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.tax-years {
+  margin-top: 16px;
+}
+.fills td {
+  white-space: nowrap;
+}
+/* 매수 · 매도 표시: 빨강·파랑은 등락 색이라 회색 면 / 진한 면 */
+.side {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--fill);
+}
+.side.sell {
+  background: var(--ink);
+  color: var(--surface);
+}
+.fills + .filters,
+.table-scroll + .filters {
+  margin-top: 12px;
+}

@@ -1,0 +1,15 @@
+/* 섹터 등락률 히트맵: 기간 열은 가운데 */
+.heat th:nth-child(n + 3) {
+  text-align: center;
+}
+.heat td.c {
+  font-family: var(--mono);
+  text-align: center;
+  border: 2px solid var(--surface);
+  border-radius: 8px;
+}
+.heat td.c:hover,
+.heat td.c:focus {
+  outline: 1px solid var(--ink);
+  outline-offset: -1px;
+}

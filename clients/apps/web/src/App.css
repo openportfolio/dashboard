@@ -1,0 +1,76 @@
+/* 앱 틀: 반투명 머리글 · 탭 */
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px 32px;
+  display: grid;
+  gap: 16px;
+}
+/* 스크롤하면 내용이 흐리게 비치는 머리글 (드로어의 header 와 겹치지 않게 main > header) */
+main > header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0 -24px;
+  padding: 14px 24px;
+  background: color-mix(in srgb, var(--page) 72%, transparent);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+}
+h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+}
+.strategy-select {
+  min-width: 220px;
+}
+/* 매초 바뀌는 시각: 모노라 글자 폭이 그대로 → 옆 전략 선택이 안 밀린다 */
+.clock {
+  font-family: var(--mono);
+}
+/* 연결 표시. 빨강·파랑은 등락 색이라 쓰지 않는다 */
+.live::before {
+  content: '●';
+  color: var(--s3);
+  margin-right: 4px;
+}
+/* 좁은 화면에서는 탭 이름을 한 줄로 두고 탭 줄만 가로로 밀어 본다 */
+.tabs {
+  justify-self: start;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs > button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 6px 18px;
+}
+@media (max-width: 720px) {
+  .tabs > button {
+    padding: 6px 12px;
+  }
+}
+.panel {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}

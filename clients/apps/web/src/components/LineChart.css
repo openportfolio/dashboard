@@ -1,0 +1,52 @@
+/* 선 차트 · 스파크라인 (uPlot 캔버스 위에 툴팁) */
+.lc {
+  position: relative;
+}
+.lc:focus {
+  outline: none; /* 포커스는 커서 · 툴팁으로 보인다 */
+}
+.lc-empty {
+  font-size: 12px;
+  padding-top: 8px;
+}
+/* uPlot 기본 스타일 덮기 */
+.lc .uplot {
+  font-family: inherit;
+}
+.lc .u-cursor-x {
+  border-right: 1px dashed var(--axis);
+}
+.lc .u-select {
+  background: var(--fill);
+}
+/* 손가락으로 가로로 훑을 수 있게, 세로 스크롤은 그대로 */
+.lc .u-over {
+  touch-action: pan-y;
+}
+.lc-tip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--material);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  box-shadow: var(--shadow-pop);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 2;
+}
+.lc-tip b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.lc-tip span {
+  display: block;
+  color: var(--ink2);
+}
+.lc-tip .sw {
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+}

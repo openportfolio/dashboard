@@ -1,0 +1,50 @@
+{
+  "name": "@portfolio/desktop",
+  "productName": "OpenPortfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "node build.ts && electron .",
+    "dist": "node build.ts && electron-builder"
+  },
+  "devDependencies": {
+    "electron": "~44.8.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "@portfolio/typescript-config": "workspace:*"
+  },
+  "description": "토스증권 Open API 포트폴리오 대시보드",
+  "author": "openportfolio",
+  "homepage": "https://openportfolio.github.io/dashboard/",
+  "build": {
+    "appId": "io.github.openportfolio.dashboard",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**"
+    ],
+    "extraResources": [
+      {
+        "from": "../web/dist",
+        "to": "web"
+      }
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.finance"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Finance"
+    }
+  }
+}

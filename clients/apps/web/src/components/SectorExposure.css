@@ -1,0 +1,59 @@
+/* 섹터 노출: 직접 보유 + ETF 경유 가로 막대 */
+.legend {
+  display: flex;
+  gap: 14px;
+  color: var(--ink2);
+  font-size: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.xbars {
+  display: grid;
+  gap: 8px;
+}
+.xbar {
+  display: grid;
+  grid-template-columns: minmax(90px, 140px) minmax(0, 1fr) 52px;
+  gap: 10px;
+  align-items: center;
+}
+.xbar:hover .xtrack,
+.xbar:focus .xtrack {
+  filter: brightness(1.1);
+}
+.xbar:focus {
+  outline: none;
+}
+.xbar .nm {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 두 조각이 이어진 캡슐: 양 끝만 둥글게 */
+.xtrack {
+  display: flex;
+  gap: 2px;
+  height: 16px;
+}
+.xtrack > div:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.xtrack > div:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.xval {
+  font-family: var(--mono);
+  text-align: right;
+  font-size: 13px;
+}
+.table-view {
+  margin-top: 16px;
+}
+.table-view summary {
+  cursor: pointer;
+  color: var(--ink2);
+  font-size: 12px;
+}

@@ -1,0 +1,15 @@
+/* 보유 종목 표 */
+.holdings th,
+.holdings td {
+  white-space: nowrap;
+}
+tr.clickable {
+  cursor: pointer;
+}
+tr.clickable:hover td,
+tr.clickable:focus td {
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+tr.clickable:focus {
+  outline: none;
+}

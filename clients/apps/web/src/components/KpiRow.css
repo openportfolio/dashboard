@@ -1,0 +1,56 @@
+/* 총 자산 · 총 손익 · 오늘 손익 */
+.kpis {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 720px) {
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}
+.kpi .label {
+  color: var(--ink2);
+  font-size: 13px;
+  font-weight: 500;
+}
+.kpi .value {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 4px;
+}
+.kpi.hero .value {
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+.kpi .delta {
+  font-size: 13px;
+  margin-top: 2px;
+}
+.kpi .delta:not(.muted) {
+  font-family: var(--mono);
+  font-weight: 500;
+}
+/* 총 자산 타일에 오늘 흐름 스파크라인 */
+.kpi.hero {
+  display: flex;
+  flex-wrap: wrap; /* 좁으면 숫자 대신 스파크라인이 아래로 내려간다 */
+  gap: 24px;
+  align-items: flex-end;
+}
+.kpi-text {
+  min-width: 0;
+}
+.kpi-spark {
+  flex: 1;
+  min-width: 140px;
+}
+/* 좁은 화면에서 '원'이 다음 줄로 떨어지지 않게 (위 48px 규칙보다 뒤에 있어야 이긴다) */
+@media (max-width: 720px) {
+  .kpi.hero .value {
+    font-size: 36px;
+  }
+}
